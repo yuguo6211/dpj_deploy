@@ -1,0 +1,23 @@
+{
+  "name": "yuguo_alisdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "alisdk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "dpjia": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuguo6211/yuguo_alisdk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "ali-oss": "^4.8.0",
+    "underscore": "^1.8.3"
+  }
+}
