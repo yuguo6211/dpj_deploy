@@ -55,7 +55,8 @@ function SiglePromise (client, obj, str) {
     var objectkey = subArr[(subArr.length) - 1]
 
     client.useBucket(obj.bucketName)
-    client.put(objectkey, str).then(function (data) {
+    var object_key = obj.projectName + '/' + objectkey;
+    client.put(object_key, str).then(function (data) {
       console.log(obj.projectName + '/' + objectkey + '上传成功')
       resolve()
     })

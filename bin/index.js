@@ -16,17 +16,25 @@ program
 var results = Underscore.isEmpty(program.args) ? [] : program.args[0].split(',')
 
 function getAllFilesArr (arr) {
-  var filesArr = []
-  var stat = fs.statSync(str)
-  if (stat && stat.isDirectory()) {
-    results.push(file)
-    results = results.concat(walkDirectory(file))
-  }
+	var filesArr = [];
+	arr.forEach(function (item) {
+		var stat = fs.statSync(item)
+	  if (stat && stat.isFile()) {
+	    filesArr.push(item)
+	  } else {
+	  	filesArr = Underscore.extend(filesArr,Helper.walk(item))
+	  }
+	})
+
+	var newarr = Underscore.map(filesArr, function (item) {
+		var arr = item.split('/')
+		var len = arr.length;
+		return (arr[len-2] + '/' + arr[len-1])
+	})
+	runAliSdk(newarr)
 }
 
-console.log(program.args[0])
-console.log('==', Helper.walk(program.args[0], 1))
-console.log('==', Helper.walkDirectory(program.args[0], 1))
+getAllFilesArr(results)
 
 
 
@@ -40,7 +48,7 @@ function runAliSdk (arr) {
     console.log('没有数据要上传呢')
     return
   }
-  ali.alisdk(results)
+  ali.alisdk(arr)
 }
 
 // runAliSdk(results)
