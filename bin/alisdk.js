@@ -1,3 +1,5 @@
+'use strict'
+
 var OSS = require('ali-oss').Wrapper
 var Underscore = require('underscore')
 var buctetInfo = require(process.cwd() + '/conf/bucket.json')
@@ -54,7 +56,7 @@ function SiglePromise (client, obj, str) {
 
     client.useBucket(obj.bucketName)
     client.put(objectkey, str).then(function (data) {
-      console.log(objectkey + '上传成功')
+      console.log(obj.projectName + '/' + objectkey + '上传成功')
       resolve()
     })
   })
