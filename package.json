@@ -1,13 +1,13 @@
 {
   "name": "yuguo_alisdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "alisdk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "dpjia": "./bin/index.js"
+    "alisdk": "./bin/index.js"
   },
   "repository": {
     "type": "git",
