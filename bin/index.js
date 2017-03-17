@@ -25,7 +25,7 @@ function getAllFilesArr (arr) {
 }
 
 console.log(program.args[0])
-console.log('==', Helper.walk(program.args[0], 1))
+console.log('==', Helper.walk(program.args[0]))
 console.log('==', Helper.walkDirectory(program.args[0], 1))
 
 
