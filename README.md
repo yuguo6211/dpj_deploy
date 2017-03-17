@@ -24,7 +24,8 @@ the `bucket,json` example:
   "bucketName":"<Your region>",
   "region": "参数是指您申请OSS服务时的区域，例如【oss-cn-hangzhou】",
   "accessKeyId": "<Your AccessKeyId>",
-  "accessKeySecret": "<Your AccessKeySecret>"
+  "accessKeySecret": "<Your AccessKeySecret>",
+  "projectName":"<Your ProjectName>"
 }
 ```
 
