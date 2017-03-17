@@ -3,7 +3,7 @@
 var OSS = require('ali-oss').Wrapper
 var Underscore = require('underscore')
 var colors = require('colors')
-var buctetInfo = require(process.cwd() + '/conf/bucket.json')
+var buctetInfo = require(process.cwd() + '/bucket.json')
 
 /**
  * 上传文件到阿里云（SDK）
