@@ -4,7 +4,6 @@ var OSS = require('ali-oss').Wrapper
 var Underscore = require('underscore')
 var buctetInfo = require(process.cwd() + '/conf/bucket.json')
 
-
 /**
  * 上传文件到阿里云（SDK）
  * Javascript Nodejs
@@ -51,13 +50,9 @@ function AsynPromise (client, obj, arr) {
  */
 function SiglePromise (client, obj, str) {
   return new Promise(function (resolve, reject) {
-    var subArr = str.split('/')
-    var objectkey = subArr[(subArr.length) - 1]
-
     client.useBucket(obj.bucketName)
-    var object_key = obj.projectName + '/' + objectkey;
-    client.put(object_key, str).then(function (data) {
-      console.log(obj.projectName + '/' + objectkey + '上传成功')
+    client.put(obj.projectName + '/' + str, str).then(function (data) {
+      console.log(str + '上传成功')
       resolve()
     })
   })
