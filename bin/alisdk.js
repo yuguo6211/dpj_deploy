@@ -1,7 +1,9 @@
+'use strict'
+
 var OSS = require('ali-oss').Wrapper
 var Underscore = require('underscore')
+var colors = require('colors')
 var buctetInfo = require(process.cwd() + '/conf/bucket.json')
-
 
 /**
  * 上传文件到阿里云（SDK）
@@ -19,7 +21,12 @@ function uploadFlie (obj, arr) {
     accessKeySecret: obj.accessKeySecret
   })
 
-  AsynPromise(client, obj, arr)
+  var startTime = Date.now()
+  console.log('开始上传啦~'.green)
+  AsynPromise(client, obj, arr).then(function () {
+    console.log('文件都上传成功了！棒棒哒~(*^﹏^*) ')
+    console.log(('一共耗时：' + endTime(startTime) + '秒').green)
+  })
 }
 
 /**
@@ -49,14 +56,16 @@ function AsynPromise (client, obj, arr) {
  */
 function SiglePromise (client, obj, str) {
   return new Promise(function (resolve, reject) {
-    var subArr = str.split('/')
-    var objectkey = subArr[(subArr.length) - 1]
-
-    client.useBucket(obj.bucketName)
-    client.put(objectkey, str).then(function (data) {
-      console.log(objectkey + '上传成功')
+    try {
+      client.useBucket(obj.bucketName)
+      client.put(obj.projectName + '/' + str, str).then(function (data) {
+        console.log(str + '  上传成功！')
+        resolve()
+      })
+    } catch (err) {
+      console.log(str + '  上传失败了~真讨厌呢！╭( T □ T )╮')
       resolve()
-    })
+    }
   })
 }
 
@@ -76,7 +85,17 @@ function alisdk (arr) {
 }
 
 /**
- * 暴露接口
+ * 计算结束时间
+ * 显示上传整个文件耗时
+ * @param {time} start 开始时间
+ * @returns 时间段
+ */
+function endTime (start) {
+  return (Date.now() - start) / 1000 
+}
+
+/**
+ * 暴露接口alisdk
  */
 module.exports = {
   alisdk: alisdk
