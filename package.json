@@ -1,5 +1,5 @@
 {
-  "name": "yuguo_alisdk",
+  "name": "dpj_deploy",
   "version": "1.0.2",
   "description": "",
   "main": "alisdk.js",
@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuguo6211/yuguo_alisdk.git"
+    "url": "git+https://github.com/yuguo6211/dpj_deploy.git"
   },
-  "author": "",
+  "author": "yuguo6211",
   "license": "ISC",
   "dependencies": {
     "commander": "^2.9.0",
