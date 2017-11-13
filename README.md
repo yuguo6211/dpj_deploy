@@ -16,8 +16,8 @@ alisdk folderName,localFileName,localFileName,....
 
 ## set conf
 
-you should create a file named `bucket.json` in the root path
-the `bucket,json` example:
+you should create a file named `bucket.json`  in config folder in the root path
+the `bucket.json` example:
 
 ```bash
 {
