@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 'use strict'
-
 var program = require('commander')
 var Underscore = require('underscore')
 var fs = require('fs')
