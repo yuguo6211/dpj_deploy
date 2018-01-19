@@ -7,7 +7,6 @@ var fs = require('fs')
 var ali = require('./alisdk.js')
 var Helper = require('./helper.js')
 
-
 program
   .version(require('../package.json').version)
   .usage('[options] [project nam]')
